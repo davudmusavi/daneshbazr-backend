@@ -1,6 +1,6 @@
 const controller = require('../controller');
 const jwt = require('jsonwebtoken');
-const {UniqueOTP} = require('unique-string-generator');
+const {UniqueOTP, UniqueNumber} = require('unique-string-generator');
 const ZarinpalCheckout = require('zarinpal-checkout');
 const sendRequest = require("send-request");
 
@@ -23,7 +23,7 @@ class shopController extends controller {
             body: {
                 "Amount" : Amount,
                 "callbackURL" : callbackURL ,
-                "invoiceID" : invoiceID,
+                "invoiceID" : UniqueNumber(),
                 "terminalID": terminalID,
             }
         });
